@@ -3,16 +3,75 @@
     flex-direction: column;
     height: 100%;  
 }
-
+// the Root display options that give direction into how the 
+// app name Styles
 .app-name {
     font-size: 30px;
     font-weight: bold;
     font-family: Nunito , sans-serif;
 }
 
-.text-color{
-     background: -webkit-linear-gradient(#909bd6, #0bd88d);
+//text colour styles for gradient and font 
+.text-color {
+     background: -webkit-linear-gradient(#909bd6, #0bd88d); //* this is using both bulma webkits and regular
+                                                                //* SCSS in creating a gradient in the text given 
      -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
+
+}
+
+//*  Board styles , this is a collection od board styles that are wrapped within the board class
+
+.board {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    min-height: 0;
+    min-width: 0;
+ 
+// board bar colour and transparency
+.board-bar {
+    background: rgba(grey , 0.5);
+    padding: 8px, 15px;
+}
+
+// board name Front and weight
+.board-name {
+    font-size: 20px;
+    font-weight:bold;
+    color: white;
+}
+
+//* creating styles for board-column and wrapper
+.board-wrapper{
+    display: flex;
+    flex-grow: 1;
+    overflow-x: auto;
+
+
+    .board-columns {
+        display: flex;
+        flex-grow: 1;
+        
+        .board-column {
+
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            flex-basis: 0; // this is to force columns to all the same size reguardless of content used inside of them
+
+            background: rgba(white , 0.5);
+
+            min-width: 300px;
+            margin: 50px;
+            padding: 25px;
+
+
+        }
+    }
+}
+
+
 
 }

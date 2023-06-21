@@ -67,6 +67,15 @@
             margin: 50px;
             padding: 25px;
 
+            border-radius: 4px;
+
+            &:not(:first-child){
+                margin-left: 0;
+
+            }  //! this is to help stop two margins form colouns form making bigger spaces.
+
+            
+
 
         }
     }

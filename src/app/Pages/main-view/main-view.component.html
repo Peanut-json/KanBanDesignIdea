@@ -20,34 +20,21 @@
     <!--* creating the coloumns for the KanBan board-->
     <div class="board-wrapper">
 
-      <div class="board-columns">
-        
-        <div class="board-column ">     <!--* creating column boards that will be the base for the boxes to live in -->
+      <div class="board-columns" cdkDropListGroup>
+        <div class="board-column" *ngFor="let column of board.columns">     <!--* creating column boards that will be the base for the boxes to live in -->
           <div class="column-title">   <!--* this is the column titles for each diffrent board-->
-            Avalible VM 
+            {{column.name}}
           </div>
-          <div class="task-container">      <!--* this is a task container inside of a column -->
-            <div class="task">              <!--* this is a task inside of the container , this will be where I create my individula tasks. -->
-              this is a task 
-            </div>
+          <div class="task-container"
+          cdkDropList
+          [cdkDropListData]="column.tasks"
+          (cdkDropListDropped)="drop($event)">  <!--* this is a task container inside of a column -->
+
+            <div class="task" *ngFor="let item of column.tasks" cdkDrag> 
+            {{ item }} 
+            </div>      <!--* this is a task inside of the container , this will be where I create my individula tasks. -->
           </div>
         </div>
-
-        <div class="board-column ">
-          <div class="column-title">
-           In Use 
-          </div>
-         
-        </div>
-
-        <div class="board-column ">
-          <div class="column-title">
-            needing attention
-          </div>
-          
-        </div>
-
-    </div>
 
     </div>
 <!--* when creating anythig inside of HTML remeber of have it always within the main root DIV,-->
